@@ -2,12 +2,12 @@ import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
 const ContactForm = () => {
   return (
-    <div className="container mx-auto py-16 px-5 lg:px-[150px]">
+    <div className="container mx-auto py-32 px-5 lg:px-[150px]">
       <div className="lg:flex justify-between items-start gap-10">
         {/* Contact Form Section */}
         <div className="lg:w-1/2 mb-10 lg:mb-0">
           <h4 className="text-gray-600 text-lg font-semibold">Send Me Email</h4>
-          <h2 className="text-4xl lg:text-5xl font-bold mt-2 mb-6">
+          <h2 className="text-2xl lg:text-5xl font-bold mt-2 mb-6">
             Feel free to write
           </h2>
           <form>
@@ -54,7 +54,7 @@ const ContactForm = () => {
           <h4 className="text-gray-600 text-lg font-semibold">
             Need Any Help?
           </h4>
-          <h2 className="text-4xl lg:text-5xl font-bold mt-2 mb-6">
+          <h2 className="text-xl lg:text-5xl font-bold mt-2 mb-6">
             Get in touch with me
           </h2>
           <p className="mb-8">
