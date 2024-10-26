@@ -8,10 +8,10 @@ const Banner = () => {
   return (
     <div className="bannerAndHeader mt-10">
       {/* Banner */}
-      <div className="min-h-[90vh] flex flex-col justify-center px-5 lg:px-[250px] pt-20 lg:pt-0">
+      <div className="min-h-[90vh] flex flex-col justify-center px-5 lg:px-[200px] pt-20 lg:pt-0">
         <div className="banner-container flex flex-col lg:flex-row justify-between items-center lg:px-0 md:px-[100px] space-y-8 lg:space-y-0 lg:space-x-[150px] w-full">
           <div className="banner-text space-y-3 lg:w-[60%]">
-            <h1 className="font-Raleway font-bold text-4xl lg:text-7xl">
+            <h1 className="font-Raleway font-bold text-5xl lg:text-7xl">
               I'm excited that
               <br /> you're here
             </h1>
@@ -37,29 +37,41 @@ const Banner = () => {
           </div>
         </div>
 
-        {/* Tech Stack */}
-        <div className="flex flex-col lg:flex-row items-center  lg:justify-start justify-center lg:space-x-5 space-x-1 space-y-5 lg:space-y-0 py-10 lg:py-0">
+        {/* Styled Tech Stack Icons */}
+        <div className="flex flex-col lg:flex-row items-center lg:justify-start justify-center lg:space-x-5 space-x-1 space-y-5 lg:space-y-0 py-10 lg:py-0">
           <p className="text-lg lg:text-xl">Tech Stack</p>
           <p>|</p>
           <div className="flex space-x-3 lg:space-x-6">
-            <FaHtml5 className="icon" style={{ color: "red" }} size="28px" />
-            <SiCss3 className="icon" style={{ color: "blue" }} size="25px" />
-            <SiJavascript
-              className="icon"
-              style={{ color: "yellow" }}
-              size="25px"
-            />
-            <FaReact
-              className="icon"
-              style={{ color: "skyblue" }}
-              size="30px"
-            />
-            <TbBrandNextjs
-              className="icon"
-              style={{ color: "black" }}
-              size="30px"
-            />
-            <FaNode className="icon" style={{ color: "green" }} size="40px" />
+            <div className="bg-green-100 rounded p-3 flex items-center justify-center">
+              <FaHtml5 className="icon" style={{ color: "red" }} size="28px" />
+            </div>
+            <div className="bg-blue-100 rounded p-3 flex items-center justify-center">
+              <SiCss3 className="icon" style={{ color: "blue" }} size="28px" />
+            </div>
+            <div className="bg-yellow-100 rounded p-3 flex items-center justify-center">
+              <SiJavascript
+                className="icon"
+                style={{ color: "yellow" }}
+                size="28px"
+              />
+            </div>
+            <div className="bg-sky-100 rounded p-3 flex items-center justify-center">
+              <FaReact
+                className="icon"
+                style={{ color: "skyblue" }}
+                size="30px"
+              />
+            </div>
+            <div className="bg-black rounded p-3 flex items-center justify-center">
+              <TbBrandNextjs
+                className="icon"
+                style={{ color: "white" }}
+                size="30px"
+              />
+            </div>
+            <div className="bg-green-100 rounded p-3 flex items-center justify-center">
+              <FaNode className="icon" style={{ color: "green" }} size="28px" />
+            </div>
           </div>
         </div>
       </div>
