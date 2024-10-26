@@ -10,6 +10,11 @@ const nextConfig = {
       "assets.stickpng.com",
       "assets.vercel.com",
       "cdn.prod.website-files.com",
+      "static.vecteezy.com",
+      "cdn-icons-png.flaticon.com",
+      "z-m-static.xx.fbcdn.net",
+      "image.similarpng.com",
+      "i.pinimg.com",
     ],
   },
 };

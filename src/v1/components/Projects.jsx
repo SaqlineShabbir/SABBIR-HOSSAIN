@@ -83,7 +83,7 @@ const Projects = () => {
     <div id="projects" className="px-5 lg:px-[150px]">
       <div className=" my-[60px] ">
         <div className="py-20 lg:flex lg:justify-between ">
-          <h1 className="font-Raleway font-bold lg:md:text-5xl text-3xl lg:w-[50%]">
+          <h1 className="font-Raleway font-bold lg:md:text-5xl text-2xl lg:w-[50%]">
             Check Out My Skills Through Projects!
           </h1>
           <p className="text-xl pt-2 font-Raleway lg:w-[50%]">
