@@ -136,7 +136,7 @@ const Resume = () => {
                   </span>
                   <span className="flex flex-col text-[#C4C4C4] lg:md:text-md text-[12px]">
                     Years
-                    <span className="text-[#fff]">Experience </span>
+                    <span className="text-[#C4C4C4]">Experience </span>
                   </span>
                 </h2>
               </div>
