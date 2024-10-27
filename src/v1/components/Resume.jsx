@@ -47,7 +47,6 @@ const Resume = () => {
     "Typescript",
     "Redux",
     "Firebase",
-    "Prisma",
   ];
   const tools = [
     {
@@ -103,7 +102,7 @@ const Resume = () => {
       data-aos-duration="2000"
       className="max-w-[1380px] mx-auto w-full"
     >
-      <div className="lg:md:px-0 px-4 lg:md:py-30 py-20">
+      <div className="lg:md:px-0  lg:md:py-30 py-20">
         <div className="blob2" style={{ filter: "blur(100px)" }}></div>
         <div
           className="rounded-xl px-6 py-12"
@@ -123,7 +122,7 @@ const Resume = () => {
           <div className="grid lg:md:grid-cols-2 lg:md:gap-x-28 py-8">
             <div>
               <div className="flex items-center justify-between pb-6">
-                <h2 className="flex flex-col font-montserrat">
+                <h2 className="flex flex-col ">
                   <span className="lg:md:text-xl text-lg font-medium ">
                     Sabbir Hossain
                   </span>
@@ -131,7 +130,7 @@ const Resume = () => {
                     MERN Stack Developer
                   </span>
                 </h2>
-                <h2 className="font-montserrat flex items-center gap-x-2">
+                <h2 className=" flex items-center gap-x-2">
                   <span className="text-[#EF4765] lg:md:text-6xl text-5xl font-bold">
                     1
                   </span>
@@ -160,7 +159,7 @@ const Resume = () => {
                 <div key={exp?.id}>
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="lg:md:text-lg text-md font-montserrat font-medium  mb-2">
+                      <h2 className="lg:md:text-lg text-md  font-medium  mb-2">
                         {exp?.title}
                       </h2>
                       <div className="flex items-center space-x-2 gap-2">
@@ -187,18 +186,12 @@ const Resume = () => {
           {/* content part 2 */}
           <div className="grid lg:md:grid-cols-2 lg:md:gap-x-28 py-8">
             <div>
-              <h2 className="lg:md:text-xl text-lg font-medium  font-montserrat ">
-                Skills
-              </h2>
+              <h2 className="lg:md:text-xl text-lg font-medium   ">Skills</h2>
               <hr className="w-42  border-t-2 border-gray-700 mb-6 mt-4" />
               <div className="grid lg:md:grid-cols-5 grid-cols-3 lg:md:gap-4  gap-2 items-center justify-between pb-6">
                 {skills.map((skill) => (
-                  <div
-                    key={skill}
-                    style={{ background: "white" }}
-                    className="rounded-lg"
-                  >
-                    <h2 className="lg:md:text-md text-[12px] font-montserrat font-medium  p-2 text-center">
+                  <div key={skill} className="rounded-lg border">
+                    <h2 className="lg:md:text-md text-[12px]  font-medium  p-2 text-center">
                       {skill}
                     </h2>
                   </div>
@@ -206,7 +199,7 @@ const Resume = () => {
               </div>
             </div>
             <div>
-              <h2 className="lg:md:text-xl text-lg font-medium  font-montserrat ">
+              <h2 className="lg:md:text-xl text-lg font-medium  ">
                 Tools I use every day
               </h2>
               <hr className="w-42  border-t-2 border-gray-700 mb-6 mt-4" />

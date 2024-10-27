@@ -8,9 +8,10 @@ const Main = () => {
   return (
     <div>
       <Banner />
-      <Socials />
+
       <Resume />
       <Projects />
+      <Socials />
       <ContactForm />
       <Footer />
     </div>

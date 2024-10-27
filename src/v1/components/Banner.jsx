@@ -30,7 +30,7 @@ const Banner = () => {
 
           <div className="flex justify-center items-center mx-auto py-5 lg:py-0 lg:w-[40%]">
             <Image
-              className="w-[270px] h-[270px] lg:max-w-[290px] lg:max-h-[300px] rounded"
+              className="w-[290px] h-[290px] lg:max-w-[290px] lg:max-h-[300px] rounded"
               src={profile}
               alt="Profile Picture"
             />
@@ -42,34 +42,34 @@ const Banner = () => {
           <p className="text-lg lg:text-xl">Tech Stack</p>
           <p>|</p>
           <div className="flex space-x-3 lg:space-x-6">
-            <div className="bg-green-100 rounded p-3 flex items-center justify-center">
+            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
               <FaHtml5 className="icon" style={{ color: "red" }} size="28px" />
             </div>
-            <div className="bg-blue-100 rounded p-3 flex items-center justify-center">
+            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
               <SiCss3 className="icon" style={{ color: "blue" }} size="28px" />
             </div>
-            <div className="bg-yellow-100 rounded p-3 flex items-center justify-center">
+            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
               <SiJavascript
                 className="icon"
                 style={{ color: "yellow" }}
                 size="28px"
               />
             </div>
-            <div className="bg-sky-100 rounded p-3 flex items-center justify-center">
+            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
               <FaReact
                 className="icon"
                 style={{ color: "skyblue" }}
                 size="30px"
               />
             </div>
-            <div className="bg-black rounded p-3 flex items-center justify-center">
+            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
               <TbBrandNextjs
                 className="icon"
-                style={{ color: "white" }}
+                style={{ color: "black" }}
                 size="30px"
               />
             </div>
-            <div className="bg-green-100 rounded p-3 flex items-center justify-center">
+            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
               <FaNode className="icon" style={{ color: "green" }} size="28px" />
             </div>
           </div>

@@ -28,7 +28,7 @@ const Socials = () => {
     <div
       data-aos="fade-zoom-in"
       data-aos-duration="3000"
-      className="my-20 lg:px-[100px]"
+      className="mt-20 lg:px-[150px] p-5"
     >
       <div className="grid lg:md:grid-cols-4 grid-cols-2 lg:md:gap-[32px] gap-10 items-center lg:md:justify-center ">
         {socials.map((social, index) => (
@@ -40,7 +40,7 @@ const Socials = () => {
           >
             <div
               style={{ background: "rgba(217, 217, 217, 0.1)" }}
-              className="cursor-pointer rounded-xl lg:md:px-24 px-8 py-[30px] mx-auto lg:md:h-[100%] h-[70px] flex items-center transform transition-transform hover:scale-110"
+              className="cursor-pointer border rounded-xl lg:md:px-24 px-8 py-[30px] mx-auto lg:md:h-[100%] h-[70px] flex items-center transform transition-transform hover:scale-110"
             >
               <h3 className="text-lg p-1"> {social.name}</h3>
 

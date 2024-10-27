@@ -77,7 +77,7 @@ const projectData = [
     demo: "https://loquacious-fairy-bcf088.netlify.app/",
   },
 ];
-console.log("hereee", `${projectData[0].imgSrc}`);
+
 const Projects = () => {
   return (
     <div id="projects" className="px-5 lg:px-[150px]">
