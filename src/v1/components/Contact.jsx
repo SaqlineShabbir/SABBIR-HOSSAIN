@@ -135,7 +135,7 @@ const ContactForm = () => {
               </div>
               <div className="ml-4">
                 <h6 className="text-lg font-semibold">Visit anytime</h6>
-                <p>Bashundhara R/A Halishar. Chattogram</p>
+                <p>Bashundhara R/A Halishar, Chattogram</p>
               </div>
             </div>
           </div>

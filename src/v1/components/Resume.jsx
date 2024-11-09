@@ -1,21 +1,30 @@
 import Image from "next/image";
 import { FaUniversity } from "react-icons/fa";
-
 import { GoDotFill } from "react-icons/go";
+import ziarah from "../assets/ziarah.PNG";
 const Resume = () => {
   const experience = [
     {
       id: 1,
+      title: "Full Stack Developer",
+      company: "Ziarah",
+      logo: ziarah,
+
+      date: "October 2024 - Present",
+      width: 35,
+    },
+    {
+      id: 2,
       title: "Post Graduation Diploma (PGDIT)",
       company: "Noakhali Science and Technology",
       logo: <FaUniversity />,
 
       date: "February 2024 - Present",
-      width: 35, // Use a number instead of a string
+      width: 35,
     },
 
     {
-      id: 2,
+      id: 3,
       title: "Think In a Redux Way",
       company: "Learn With Sumit",
       logo: <FaUniversity />,
@@ -23,12 +32,12 @@ const Resume = () => {
       width: 50,
     },
     {
-      id: 3,
+      id: 4,
       title: "Complete Web Development Course",
       company: "Programming Hero",
       logo: <FaUniversity />,
       date: "June 2021 - June 2022",
-      width: 55, // Use a number instead of a string
+      width: 55,
     },
   ];
   const skills = [
@@ -159,12 +168,36 @@ const Resume = () => {
                 <div key={exp?.id}>
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="lg:md:text-lg text-md  font-medium  mb-2">
+                      <h2 className="lg:md:text-lg text-md font-medium mb-2">
                         {exp?.title}
                       </h2>
                       <div className="flex items-center space-x-2 gap-2">
-                        {exp.logo}
-                        {exp.company}
+                        {/* Conditionally render logo as an image or icon */}
+                        {exp?.logo ? (
+                          // Check if logo is a string (image URL) and includes ".png"
+                          typeof exp.logo === "string" &&
+                          exp.logo.includes(".png") ? (
+                            <Image
+                              src={exp.logo}
+                              alt="Logo"
+                              width={22}
+                              height={22}
+                              className="object-cover"
+                            />
+                          ) : exp.logo?.src ? (
+                            <Image
+                              src={exp.logo.src}
+                              alt="Logo"
+                              width={22}
+                              height={22}
+                              className="object-cover"
+                            />
+                          ) : (
+                            // If logo is a React component (icon)
+                            <div className="w-8 h-8">{exp.logo}</div>
+                          )
+                        ) : null}
+                        {exp?.company}
                       </div>
                     </div>
                     <h2
@@ -177,7 +210,7 @@ const Resume = () => {
                       {exp?.date}
                     </h2>
                   </div>
-                  <hr className="w-42  border-t-2 border-gray-700 mt-4 mb-6" />
+                  <hr className="w-42 border-t-2 border-gray-700 mt-4 mb-6" />
                 </div>
               ))}
             </div>

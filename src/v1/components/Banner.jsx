@@ -1,19 +1,64 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { FaHtml5, FaNode, FaReact } from "react-icons/fa";
 import { SiCss3, SiJavascript } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
-import profile from "../../v1/assets/me.jpg";
-
+import profile from "../../v1/assets/s.jpg";
+import "./Banner.css";
 const Banner = () => {
+  const [loopNum, setLoopNum] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState("");
+  const [delta, setDelta] = useState(300 - Math.random() * 100);
+  const [index, setIndex] = useState(1);
+  const toRotate = ["ou're here!"];
+  const period = 2000;
+
+  useEffect(() => {
+    const ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => clearInterval(ticker);
+  }, [text]);
+
+  const tick = () => {
+    let i = loopNum % toRotate.length;
+    let fullText = toRotate[i];
+    let updatedText = isDeleting
+      ? fullText.substring(0, text.length - 1)
+      : fullText.substring(0, text.length + 1);
+
+    setText(updatedText);
+
+    if (isDeleting) {
+      setDelta((prevDelta) => prevDelta / 2); // Speed up typing when deleting
+    }
+
+    if (!isDeleting && updatedText === fullText) {
+      setIsDeleting(true);
+      setIndex((prevIndex) => prevIndex - 1);
+      setDelta(period); // Delay when full text is typed
+    } else if (isDeleting && updatedText === "") {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      setIndex(1);
+      setDelta(500); // Reset typing speed after deleting
+    } else {
+      setIndex((prevIndex) => prevIndex + 1);
+    }
+  };
+
   return (
-    <div className="bannerAndHeader mt-10">
+    <div className="bannerAndHeader ">
       {/* Banner */}
-      <div className="min-h-[90vh] flex flex-col justify-center px-5 lg:px-[200px] pt-20 lg:pt-0">
+      <div className="min-h-[80vh] flex flex-col justify-center px-5 lg:px-[200px] pt-20 lg:pt-0">
         <div className="banner-container flex flex-col lg:flex-row justify-between items-center lg:px-0 md:px-[100px] space-y-8 lg:space-y-0 lg:space-x-[150px] w-full">
-          <div className="banner-text space-y-3 lg:w-[60%]">
+          <div className="banner-text space-y-3 lg:w-[60%] text-center md:text-left">
             <h1 className="font-Raleway font-bold text-5xl lg:text-7xl">
               I'm excited that
-              <br /> you're here
+              <br /> y{text}
             </h1>
 
             <div>
@@ -28,9 +73,9 @@ const Banner = () => {
             </div>
           </div>
 
-          <div className="flex justify-center items-center mx-auto py-5 lg:py-0 lg:w-[40%]">
+          <div className="  flex justify-center items-center mx-auto py-5 lg:pt-10 lg:w-[40%]">
             <Image
-              className="w-[290px] h-[290px] lg:max-w-[290px] lg:max-h-[300px] rounded"
+              className="animation w-[290px] h-[290px] lg:w-[310px] lg:h-[310px] animate-border-shape"
               src={profile}
               alt="Profile Picture"
             />
