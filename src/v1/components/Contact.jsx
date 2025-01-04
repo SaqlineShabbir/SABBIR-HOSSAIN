@@ -34,8 +34,8 @@ const ContactForm = () => {
     }
   };
   return (
-    <div className="container mx-auto py-32 px-5 lg:px-[140px]">
-      <div className="lg:flex justify-between items-start gap-10">
+    <div className="container mx-auto py-32 px-5 lg:px-[40px]">
+      <div className="lg:flex justify-between items-start gap-20">
         {/* Contact Form Section */}
         <div className="lg:w-1/2 mb-10 lg:mb-0">
           <Toaster />
