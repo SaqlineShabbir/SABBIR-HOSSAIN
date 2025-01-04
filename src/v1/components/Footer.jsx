@@ -12,7 +12,7 @@ const Footer = () => {
           Developed by Sabbir..
         </span>
         <span className="flex items-center gap-1">
-          <FaRegClock /> Updated: 09 Nov 2024
+          <FaRegClock /> Updated: 04 Jan 2025
         </span>
       </div>
     </div>
