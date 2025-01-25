@@ -80,7 +80,7 @@ const projectData = [
 
 const Projects = () => {
   return (
-    <div id="projects" className="px-5 lg:px-[150px]">
+    <div id="projects" className="px-5 lg:px-[100px]">
       <div className=" my-[60px] ">
         <div className="py-20 lg:flex lg:justify-between ">
           <h1 className="font-Raleway font-bold lg:md:text-5xl text-2xl lg:w-[50%]">

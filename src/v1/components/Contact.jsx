@@ -34,14 +34,14 @@ const ContactForm = () => {
     }
   };
   return (
-    <div className="container mx-auto py-32 px-5 lg:px-[40px]">
+    <div className="container mx-auto py-32 px-5 lg:px-[100px]">
       <div className="lg:flex justify-between items-start gap-20">
         {/* Contact Form Section */}
         <div className="lg:w-1/2 mb-10 lg:mb-0">
           <Toaster />
           <h4 className="text-gray-600 text-lg font-semibold">Send Me Email</h4>
           <h2 className="text-2xl lg:text-3xl font-bold mt-2 mb-6">
-            Feel free to w rite
+            Feel free to write
           </h2>
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

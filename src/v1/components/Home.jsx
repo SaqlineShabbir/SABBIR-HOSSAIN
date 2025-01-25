@@ -7,7 +7,7 @@ import Resume from "./Resume";
 import Socials from "./Socials";
 const Main = () => {
   return (
-    <div>
+    <div className="max-w-screen-xl mx-auto">
       <Navigation />
       <Banner />
 
