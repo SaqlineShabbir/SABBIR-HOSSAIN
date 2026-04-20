@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     domains: [
+      "img.icons8.com",
       "upload.wikimedia.org",
       "cutewallpaper.org",
       "seeklogo.com",

@@ -5,12 +5,12 @@ import Navigation from "./Navigation";
 import Projects from "./Projects";
 import Resume from "./Resume";
 import Socials from "./Socials";
+
 const Main = () => {
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="relative min-h-screen">
       <Navigation />
       <Banner />
-
       <Resume />
       <Projects />
       <Socials />

@@ -1,147 +1,214 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { HiPaperAirplane } from "react-icons/hi";
+
+const contactInfo = [
+  {
+    icon: FaPhoneAlt,
+    title: "Phone",
+    value: "+88 (0171-0547636)",
+    href: "tel:+8801710547636",
+  },
+  {
+    icon: FaEnvelope,
+    title: "Email",
+    value: "sabbir0911hossain@gmail.com",
+    href: "mailto:sabbir0911hossain@gmail.com",
+  },
+  {
+    icon: FaMapMarkerAlt,
+    title: "Location",
+    value: "Bashundhara R/A, Chattogram",
+    href: "#",
+  },
+];
 
 const ContactForm = () => {
+  const [loading, setLoading] = useState(false);
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setVisible(true); },
+      { threshold: 0.08 }
+    );
+    if (sectionRef.current) obs.observe(sectionRef.current);
+    return () => obs.disconnect();
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const formData = new FormData(e.currentTarget);
-
       const contactData = {
-        name: formData.name,
-        name: formData.get("name"),
-        email: formData.get("email"),
+        name:    formData.get("name"),
+        email:   formData.get("email"),
         subject: formData.get("subject"),
-        phone: formData.get("phone"),
+        phone:   formData.get("phone"),
         message: formData.get("message"),
       };
-
       const response = await fetch("/api/contact", {
         method: "POST",
         body: JSON.stringify(contactData),
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      if (response.ok) {
-        toast.success("Send successfull");
-      }
-      const data = await response.json();
-    } catch (error) {
-      console.log(error.message);
+      if (!response.ok) throw new Error(`Status: ${response.status}`);
+      toast.success("Message sent! I'll be in touch soon.");
+      e.currentTarget.reset();
+    } catch {
+      toast.error("Something went wrong — please try again.");
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
-    <div className="container mx-auto py-32 px-5 lg:px-[100px]">
-      <div className="lg:flex justify-between items-start gap-20">
-        {/* Contact Form Section */}
-        <div className="lg:w-1/2 mb-10 lg:mb-0">
-          <Toaster />
-          <h4 className="text-gray-600 text-lg font-semibold">Send Me Email</h4>
-          <h2 className="text-2xl lg:text-3xl font-bold mt-2 mb-6">
-            Feel free to write
+    <section
+      id="contact"
+      ref={sectionRef}
+      className={`relative py-24 px-5 lg:px-20 overflow-hidden transition-all duration-700 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+      }`}
+    >
+      <div className="blob-purple" style={{ bottom: "0%", left: "-5%" }} />
+
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: "#1a1030",
+            color: "#e2e8f0",
+            border: "1px solid rgba(124,58,237,0.35)",
+          },
+        }}
+      />
+
+      <div className="max-w-screen-xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <p className="text-purple-400 text-sm font-medium uppercase tracking-widest mb-3">
+            Get In Touch
+          </p>
+          <h2 className="font-bold text-3xl lg:text-5xl text-white mb-3">
+            Contact <span className="gradient-text">Me</span>
           </h2>
-          <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter Name"
-                className="p-4 border border-gray-300 rounded-md w-full"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter Email"
-                className="p-4 border border-gray-300 rounded-md w-full"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Enter Subject"
-                name="subject"
-                className="p-4 border border-gray-300 rounded-md w-full"
-                required
-              />
-              <input
-                type="text"
-                placeholder="Enter Phone"
-                name="phone"
-                className="p-4 border border-gray-300 rounded-md w-full"
-              />
-              <textarea
-                placeholder="Enter Message"
-                className="p-4 border border-gray-300 rounded-md w-full col-span-1 lg:col-span-2"
-                rows="4"
-                name="message"
-                required
-              ></textarea>
-            </div>
-            <div className="flex space-x-4 mt-6">
-              <button
-                type="submit"
-                className="bg-gray-600 text-white py-3 px-8 rounded-md hover:bg-gray-700"
-              >
-                SEND MESSAGE
-              </button>
-              <div
-                onClick={() => document.querySelector("form").reset()}
-                className="bg-gray-300 text-black py-3 px-8 rounded-md hover:bg-gray-400 cursor-pointer"
-              >
-                RESET
-              </div>
-            </div>
-          </form>
+          <div className="section-divider" />
+          <p className="text-white/35 text-base mt-5 max-w-lg mx-auto">
+            Have a project in mind or just want to say hi? My inbox is always open.
+          </p>
         </div>
 
-        {/* Contact Info Section */}
-        <div className="lg:w-1/2">
-          <h4 className="text-gray-600 text-lg font-semibold">
-            Need Any Help?
-          </h4>
-          <h2 className="text-xl lg:text-3xl font-bold mt-2 mb-6">
-            Get in touch with me
-          </h2>
-          <p className="mb-8">
-            Lorem ipsum is simply free text available dolor sit amet
-            consectetuer notted adipiscing elit sed do eiusmod tempor incididunt
-            simply dolore magna.
-          </p>
-          <div className="space-y-8">
-            <div className="flex items-start">
-              <div className="bg-gray-600 text-white p-4 rounded-md">
-                <FaPhoneAlt size={22} />
-              </div>
-              <div className="ml-4">
-                <h6 className="text-lg font-semibold">Have any question?</h6>
-                <p>Phone +88 (0171-0547636)</p>
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+          {/* ── Form ── */}
+          <div className="lg:col-span-3">
+            <div className="glass-card p-6 lg:p-8">
+              <h3 className="text-xl font-bold text-white mb-6">Send a Message</h3>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    className="input-glow"
+                    required
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    className="input-glow"
+                    required
+                  />
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    className="input-glow"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone (optional)"
+                    className="input-glow"
+                  />
+                </div>
+                <textarea
+                  name="message"
+                  placeholder="Write your message…"
+                  rows={5}
+                  className="input-glow resize-none"
+                  required
+                />
+                <div className="flex gap-3 pt-1">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {loading ? (
+                      <>
+                        <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Sending…
+                      </>
+                    ) : (
+                      <>
+                        <HiPaperAirplane size={15} />
+                        Send Message
+                      </>
+                    )}
+                  </button>
+                  <button type="reset" className="btn-outline">
+                    Clear
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          {/* ── Info ── */}
+          <div className="lg:col-span-2 space-y-4">
+            <div className="glass-card p-6">
+              <h3 className="text-lg font-bold text-white mb-5">Contact Info</h3>
+              <div className="space-y-4">
+                {contactInfo.map(({ icon: Icon, title, value, href }) => (
+                  <a key={title} href={href} className="flex items-start gap-4 group">
+                    <div className="contact-icon-card">
+                      <Icon size={16} />
+                    </div>
+                    <div>
+                      <p className="text-white/35 text-[11px] uppercase tracking-wider mb-0.5">
+                        {title}
+                      </p>
+                      <p className="text-white/75 text-sm group-hover:text-purple-400 transition-colors">
+                        {value}
+                      </p>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
-            <div className="flex items-start">
-              <div className="bg-gray-600 text-white p-4 rounded-md">
-                <FaEnvelope size={22} />
+
+            <div className="glass-card p-6">
+              <h4 className="text-white font-semibold mb-3 text-sm">Availability</h4>
+              <div className="flex items-center gap-2 mb-2.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+                <span className="text-green-400 text-sm font-medium">Open to opportunities</span>
               </div>
-              <div className="ml-4">
-                <h6 className="text-lg font-semibold">Write email</h6>
-                <p>sabbir0911hossain@gmail.com</p>
-              </div>
-            </div>
-            <div className="flex items-start">
-              <div className="bg-gray-600 text-white p-4 rounded-md">
-                <FaMapMarkerAlt size={22} />
-              </div>
-              <div className="ml-4">
-                <h6 className="text-lg font-semibold">Visit anytime</h6>
-                <p>Bashundhara R/A Halishar, Chattogram</p>
-              </div>
+              <p className="text-white/35 text-xs leading-relaxed">
+                Currently available for freelance projects and full-time positions.
+                Usually responds within 24 hours.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

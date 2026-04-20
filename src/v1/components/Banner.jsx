@@ -1,127 +1,200 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FaHtml5, FaNode, FaReact } from "react-icons/fa";
-import { SiCss3, SiJavascript } from "react-icons/si";
-import { TbBrandNextjs } from "react-icons/tb";
-import profile from "../../v1/assets/s.jpg";
+import { FaDownload, FaEnvelope, FaHtml5, FaNode, FaReact } from "react-icons/fa";
+import { HiArrowDown } from "react-icons/hi";
+import { SiCss3, SiJavascript, SiMongodb, SiNextdotjs, SiTypescript } from "react-icons/si";
+import profile from "../../v1/assets/sab.jpg";
 import "./Banner.css";
 
+const techStack = [
+  { icon: FaHtml5,      color: "#E44D26", label: "HTML5" },
+  { icon: SiCss3,       color: "#264DE4", label: "CSS3" },
+  { icon: SiJavascript, color: "#F7DF1E", label: "JavaScript" },
+  { icon: FaReact,      color: "#61DAFB", label: "React" },
+  { icon: SiNextdotjs,  color: "#ffffff", label: "Next.js" },
+  { icon: FaNode,       color: "#68A063", label: "Node.js" },
+  { icon: SiMongodb,    color: "#4DB33D", label: "MongoDB" },
+  { icon: SiTypescript, color: "#3178C6", label: "TypeScript" },
+];
+
+const toRotate = [
+  "Full Stack Developer",
+  "MERN Stack Expert",
+  "Next.js Enthusiast",
+  "UI/UX Lover",
+];
+
 const Banner = () => {
-  const [loopNum, setLoopNum] = useState(0);
+  const [loopNum, setLoopNum]       = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState("");
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
-  const toRotate = ["ou're here!"];
+  const [text, setText]             = useState("");
+  const [delta, setDelta]           = useState(150);
   const period = 2000;
 
   useEffect(() => {
-    const ticker = setInterval(() => {
-      tick();
-    }, delta);
-
+    const ticker = setInterval(tick, delta);
     return () => clearInterval(ticker);
   }, [text]);
 
   const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting
+    const i        = loopNum % toRotate.length;
+    const fullText = toRotate[i];
+    const updated  = isDeleting
       ? fullText.substring(0, text.length - 1)
       : fullText.substring(0, text.length + 1);
 
-    setText(updatedText);
+    setText(updated);
 
     if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2); // Speed up typing when deleting
+      setDelta(60);
     }
-
-    if (!isDeleting && updatedText === fullText) {
+    if (!isDeleting && updated === fullText) {
       setIsDeleting(true);
-      setIndex((prevIndex) => prevIndex - 1);
-      setDelta(period); // Delay when full text is typed
-    } else if (isDeleting && updatedText === "") {
+      setDelta(period);
+    } else if (isDeleting && updated === "") {
       setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setIndex(1);
-      setDelta(500); // Reset typing speed after deleting
-    } else {
-      setIndex((prevIndex) => prevIndex + 1);
+      setLoopNum((n) => n + 1);
+      setDelta(150);
     }
   };
 
   return (
-    <div className="bannerAndHeader ">
-      {/* Banner */}
-      <div className="min-h-[80vh] flex flex-col justify-center px-5 lg:px-[100px] pt-20 lg:pt-0">
-        <div className="banner-container flex flex-col lg:flex-row justify-center items-center space-y-8 lg:space-y-0 lg:space-x-[150px] w-full ">
-          <div className="banner-text space-y-3 lg:w-[60%] text-center md:text-left">
-            <h1 className="font-Raleway font-bold text-4xl md:text-5xl lg:text-7xl">
-              I'm excited that
-              <br /> y{text}
+    <section
+      id="about"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+    >
+      {/* Ambient blobs */}
+      <div className="blob-purple" style={{ top: "8%",    left: "-8%" }} />
+      <div className="blob-blue"   style={{ bottom: "5%", right: "-5%" }} />
+
+      {/* Star particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(24)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white"
+            style={{
+              width:  Math.random() * 2.5 + 0.5 + "px",
+              height: Math.random() * 2.5 + 0.5 + "px",
+              top:    Math.random() * 100 + "%",
+              left:   Math.random() * 100 + "%",
+              animation: `twinkle ${2 + Math.random() * 4}s ease-in-out ${Math.random() * 3}s infinite`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Main content */}
+      <div className="relative z-10 max-w-screen-xl mx-auto w-full px-5 lg:px-20 pt-24 pb-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+
+          {/* ── Left: Text ── */}
+          <div className="space-y-6 lg:w-[55%] text-center lg:text-left animate-fade-up">
+            {/* Available badge */}
+            <div className="inline-flex items-center gap-2 glass-card px-4 py-2 text-sm text-purple-300">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              Available for new opportunities
+            </div>
+
+            {/* Heading */}
+            <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight text-white">
+              Hi, I&apos;m{" "}
+              <span className="gradient-text">Sabbir</span>
+              <br />
+              <span className="text-white/90">Hossain</span>
             </h1>
 
-            <div>
-              <div className="hr w-[80px] md:w-[100px] mx-auto"></div>
-              <div>
-                <p className="py-3 text-base lg:text-lg">
-                  I understand that finding the perfect developer can be a
-                  daunting task. But rest assured, your search is over! I'm
-                  confident that you have found the ideal candidate for you.
-                </p>
-              </div>
+            {/* Typed role */}
+            <div className="flex items-center justify-center lg:justify-start gap-3 h-8">
+              <div className="accent-line" />
+              <h2 className="text-lg lg:text-xl font-medium text-white/60">
+                <span className="text-purple-400 font-semibold">{text}</span>
+                <span className="text-purple-400 animate-pulse">|</span>
+              </h2>
+            </div>
+
+            {/* Description */}
+            <p className="text-white/50 text-base lg:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+              A passionate developer crafting elegant full-stack web applications.
+              I combine clean code with great design to deliver digital experiences
+              that users love.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start pt-1">
+              <a href="#contact" className="btn-primary">
+                <FaEnvelope size={14} />
+                Hire Me
+              </a>
+              <a href="#projects" className="btn-outline">
+                View Projects
+                <HiArrowDown size={14} />
+              </a>
+            </div>
+
+            {/* Stats row */}
+            <div className="flex gap-8 justify-center lg:justify-start pt-2">
+              {[
+                { value: "2+",  label: "Years Experience" },
+                { value: "80+", label: "Projects Built" },
+                { value: "10+", label: "Technologies" },
+              ].map(({ value, label }) => (
+                <div key={label}>
+                  <p className="gradient-text font-black text-2xl lg:text-3xl">{value}</p>
+                  <p className="text-white/30 text-xs mt-0.5">{label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="flex justify-center items-center mx-auto py-5 lg:pt-10 lg:w-[40%]">
-            <Image
-              className="animation w-[290px] h-[290px] lg:w-[310px] lg:h-[310px] animate-border-shape"
-              src={profile}
-              alt="Profile Picture"
-            />
+          {/* ── Right: Profile Image ── */}
+          <div className="lg:w-[40%] flex justify-center items-center">
+            <div className="relative animate-float">
+              {/* Outer glow */}
+              <div className="absolute inset-[-16px] rounded-full bg-gradient-to-r from-purple-600 via-blue-500 to-pink-500 opacity-25 blur-2xl animate-glow" />
+              {/* Spinning ring */}
+              <div className="absolute inset-[-4px] rounded-full bg-gradient-to-r from-purple-600 via-blue-500 to-pink-500 animate-spin-slow opacity-60" />
+              {/* Photo */}
+              <Image
+                className="animation relative z-10 w-[250px] h-[250px] lg:w-[310px] lg:h-[310px]"
+                src={profile}
+                alt="Sabbir Hossain"
+                priority
+              />
+            </div>
           </div>
         </div>
 
-        {/* Styled Tech Stack Icons */}
-        <div className="flex flex-col lg:flex-row items-center lg:justify-start justify-center lg:space-x-5 space-x-1 space-y-5 lg:space-y-0 py-10 lg:py-0">
-          <p className="text-lg lg:text-xl">Tech Stack</p>
-          <p>|</p>
-          <div className="flex flex-wrap justify-center gap-3 lg:gap-6">
-            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
-              <FaHtml5 className="icon" style={{ color: "red" }} size="28px" />
-            </div>
-            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
-              <SiCss3 className="icon" style={{ color: "blue" }} size="28px" />
-            </div>
-            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
-              <SiJavascript
-                className="icon"
-                style={{ color: "yellow" }}
-                size="28px"
-              />
-            </div>
-            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
-              <FaReact
-                className="icon"
-                style={{ color: "skyblue" }}
-                size="30px"
-              />
-            </div>
-            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
-              <TbBrandNextjs
-                className="icon"
-                style={{ color: "black" }}
-                size="30px"
-              />
-            </div>
-            <div className="bg-gray-50 rounded p-3 flex items-center justify-center">
-              <FaNode className="icon" style={{ color: "green" }} size="28px" />
-            </div>
+        {/* ── Tech Stack ── */}
+        <div className="mt-16 lg:mt-20 animate-fade-up" style={{ animationDelay: "0.5s", opacity: 0 }}>
+          <p className="text-white/30 text-xs font-semibold uppercase tracking-[4px] text-center mb-6">
+            Tech Stack
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {techStack.map(({ icon: Icon, color, label }) => (
+              <div key={label} className="tech-icon-card">
+                <Icon style={{ color }} size={20} />
+                <span className="text-white/55 text-sm font-medium">{label}</span>
+              </div>
+            ))}
           </div>
+        </div>
+
+        {/* ── Scroll indicator ── */}
+        <div className="flex justify-center mt-14">
+          <a
+            href="#resume"
+            className="flex flex-col items-center gap-2 text-white/25 hover:text-white/50 transition-colors duration-300"
+          >
+            <span className="text-[10px] uppercase tracking-[3px]">Scroll Down</span>
+            <div className="w-5 h-8 border border-white/15 rounded-full flex justify-center pt-1.5">
+              <div className="w-1 h-2 bg-white/35 rounded-full animate-bounce" />
+            </div>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
