@@ -1,21 +1,23 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { FaDownload, FaEnvelope, FaHtml5, FaNode, FaReact } from "react-icons/fa";
+import { FaEnvelope, FaHtml5, FaNode, FaReact } from "react-icons/fa";
 import { HiArrowDown } from "react-icons/hi";
-import { SiCss3, SiJavascript, SiMongodb, SiNextdotjs, SiTypescript } from "react-icons/si";
+import { SiCss3, SiJavascript, SiMongodb, SiMysql, SiNextdotjs, SiTypescript } from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
 import profile from "../../v1/assets/sab.jpg";
-import "./Banner.css";
 
 const techStack = [
   { icon: FaHtml5,      color: "#E44D26", label: "HTML5" },
   { icon: SiCss3,       color: "#264DE4", label: "CSS3" },
   { icon: SiJavascript, color: "#F7DF1E", label: "JavaScript" },
+  { icon: SiTypescript, color: "#3178C6", label: "TypeScript" },
   { icon: FaReact,      color: "#61DAFB", label: "React" },
   { icon: SiNextdotjs,  color: "#ffffff", label: "Next.js" },
   { icon: FaNode,       color: "#68A063", label: "Node.js" },
   { icon: SiMongodb,    color: "#4DB33D", label: "MongoDB" },
-  { icon: SiTypescript, color: "#3178C6", label: "TypeScript" },
+  { icon: SiMysql,            color: "#4479A1", label: "SQL" },
+  { icon: TbBrandReactNative, color: "#61DAFB", label: "React Native" },
 ];
 
 const toRotate = [

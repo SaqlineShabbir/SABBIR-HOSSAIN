@@ -42,9 +42,9 @@ const experience = [
 
 const skills = [
   "HTML", "CSS", "JavaScript", "TypeScript",
-  "ReactJs", "NextJs", "NodeJs", "ExpressJs",
-  "MongoDB", "MySQL", "Tailwind", "Bootstrap",
-  "Mongoose", "Redux", "Firebase",
+  "ReactJs", "React Native", "NextJs", "NodeJs",
+  "ExpressJs", "MongoDB", "MySQL", "Tailwind",
+  "Bootstrap", "Mongoose", "Redux", "Firebase",
 ];
 
 const tools = [
