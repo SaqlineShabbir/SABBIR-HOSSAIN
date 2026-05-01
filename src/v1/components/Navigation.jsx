@@ -5,20 +5,38 @@ import { useEffect, useState } from "react";
 import logo from "../assets/shlogo.PNG";
 
 const navLinks = [
-  { label: "About",    href: "#about" },
-  { label: "Resume",   href: "#resume" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact",  href: "#contact" },
+  { label: "About",    href: "#about",    id: "about" },
+  { label: "Resume",   href: "#resume",   id: "resume" },
+  { label: "Projects", href: "#projects", id: "projects" },
+  { label: "Contact",  href: "#contact",  id: "contact" },
 ];
 
 const Navigation = () => {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled]         = useState(false);
+  const [menuOpen, setMenuOpen]         = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Track active section via IntersectionObserver
+  useEffect(() => {
+    const observers = navLinks.map(({ id }) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { threshold: 0, rootMargin: "-72px 0px -55% 0px" }
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach((obs) => obs?.disconnect());
   }, []);
 
   return (
@@ -42,9 +60,13 @@ const Navigation = () => {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link key={link.label} href={link.href} className="nav-link">
-              {link.label}
+          {navLinks.map(({ label, href, id }) => (
+            <Link
+              key={label}
+              href={href}
+              className={`nav-link ${activeSection === id ? "nav-link-active" : ""}`}
+            >
+              {label}
             </Link>
           ))}
           <Link href="#contact" className="btn-primary text-sm py-2 px-5">
@@ -55,7 +77,7 @@ const Navigation = () => {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMenuOpen((o) => !o)}
-          className="md:hidden flex flex-col justify-center gap-[5px] p-2 group"
+          className="md:hidden flex flex-col justify-center gap-[5px] p-2"
           aria-label="Toggle menu"
         >
           <span className={`block w-5 h-0.5 bg-white/70 rounded-full transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
@@ -71,14 +93,14 @@ const Navigation = () => {
         } bg-[#050816]/95 backdrop-blur-lg border-b border-white/5`}
       >
         <div className="px-5 py-4 flex flex-col gap-4">
-          {navLinks.map((link) => (
+          {navLinks.map(({ label, href, id }) => (
             <Link
-              key={link.label}
-              href={link.href}
-              className="nav-link text-base"
+              key={label}
+              href={href}
+              className={`nav-link text-base ${activeSection === id ? "nav-link-active" : ""}`}
               onClick={() => setMenuOpen(false)}
             >
-              {link.label}
+              {label}
             </Link>
           ))}
           <Link

@@ -1,4 +1,5 @@
 "use client";
+import confetti from "canvas-confetti";
 import { useEffect, useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
@@ -54,6 +55,13 @@ const ContactForm = () => {
       if (!response.ok) throw new Error(`Status: ${response.status}`);
       toast.success("Message sent! I'll be in touch soon.");
       e.currentTarget.reset();
+      confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ["#7c3aed", "#3b82f6", "#ec4899", "#a78bfa", "#60a5fa"],
+        disableForReducedMotion: true,
+      });
     } catch {
       toast.error("Something went wrong — please try again.");
     } finally {

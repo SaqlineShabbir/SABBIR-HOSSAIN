@@ -55,12 +55,17 @@ const ProjectCard = ({ project, index }) => {
           </div>
         )}
         <Image
-          className={`w-full h-full object-cover transition-opacity duration-500 ${imgLoaded ? "opacity-100" : "opacity-0"}`}
+          className={`w-full h-full object-cover transition-all duration-700 ease-out ${imgLoaded ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
           src={project.imgSrc}
           alt={project.title}
           onLoad={() => setImgLoaded(true)}
         />
-        <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-0 group-hover:opacity-75 transition-opacity duration-300`} />
+        {/* Live badge */}
+        <div className="absolute top-3 left-3 z-20 flex items-center gap-1.5 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full border border-green-500/30">
+          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+          <span className="text-green-400 text-[10px] font-semibold uppercase tracking-wide">Live</span>
+        </div>
+        <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-0 group-hover:opacity-75 transition-opacity duration-400`} />
         <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
           {project.github && (
             <Link href={project.github} target="_blank" className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/35 transition-colors">
