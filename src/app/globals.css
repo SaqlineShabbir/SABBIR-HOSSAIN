@@ -411,6 +411,16 @@ body {
   to { width: 90px; }
 }
 
+/* ── Leaf animations ── */
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(-4deg) translateY(0px); }
+  33%       { transform: rotate(5deg)  translateY(-7px); }
+  66%       { transform: rotate(-2deg) translateY(-3px); }
+}
+.leaf-sway      { animation: leaf-sway 7s ease-in-out infinite; }
+.svg-leaf-sway  { transform-box: fill-box; transform-origin: center 80%; animation: leaf-sway 6s  ease-in-out infinite; }
+.svg-leaf-slow  { transform-box: fill-box; transform-origin: center 80%; animation: leaf-sway 10s ease-in-out infinite; }
+
 /* ── Ambient blobs ── */
 .blob-purple {
   position: absolute;

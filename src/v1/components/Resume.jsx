@@ -1,5 +1,29 @@
 "use client";
 import Image from "next/image";
+
+const LeafDivider = () => (
+  <svg width="220" height="28" viewBox="0 0 220 28" className="mx-auto mt-4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="rvg" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stopColor="#7c3aed" stopOpacity="0"/>
+        <stop offset="30%"  stopColor="#7c3aed" stopOpacity="0.7"/>
+        <stop offset="50%"  stopColor="#3b82f6" stopOpacity="1"/>
+        <stop offset="70%"  stopColor="#7c3aed" stopOpacity="0.7"/>
+        <stop offset="100%" stopColor="#7c3aed" stopOpacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M 10 14 C 50 8, 80 20, 110 14 C 140 8, 170 20, 210 14" stroke="url(#rvg)" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+    <ellipse cx="42" cy="9"  rx="8" ry="4"   transform="rotate(-30 42 9)"   fill="rgba(124,58,237,0.25)" stroke="rgba(124,58,237,0.5)"  strokeWidth="0.8"/>
+    <ellipse cx="55" cy="19" rx="7" ry="3.5"  transform="rotate(20 55 19)"  fill="rgba(59,130,246,0.2)"  stroke="rgba(59,130,246,0.45)" strokeWidth="0.8"/>
+    <ellipse cx="110" cy="7" rx="9" ry="4.5"  transform="rotate(-10 110 7)" fill="rgba(124,58,237,0.3)"  stroke="rgba(124,58,237,0.6)"  strokeWidth="0.9"/>
+    <line x1="110" y1="11" x2="110" y2="17"   stroke="rgba(124,58,237,0.4)" strokeWidth="0.8"/>
+    <ellipse cx="168" cy="9"  rx="8" ry="4"   transform="rotate(30 168 9)"  fill="rgba(124,58,237,0.25)" stroke="rgba(124,58,237,0.5)"  strokeWidth="0.8"/>
+    <ellipse cx="155" cy="19" rx="7" ry="3.5"  transform="rotate(-20 155 19)" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.45)" strokeWidth="0.8"/>
+    <circle cx="80"  cy="14" r="2"   fill="rgba(124,58,237,0.5)"/>
+    <circle cx="110" cy="14" r="2.5" fill="rgba(59,130,246,0.6)"/>
+    <circle cx="140" cy="14" r="2"   fill="rgba(124,58,237,0.5)"/>
+  </svg>
+);
 import { useEffect, useRef, useState } from "react";
 import { FaCodeBranch, FaStar, FaUniversity, FaUserFriends } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
@@ -191,7 +215,7 @@ const Resume = () => {
           <h2 className="font-bold text-3xl lg:text-5xl text-white mb-3">
             My <span className="gradient-text">Resume</span>
           </h2>
-          <div className="section-divider" />
+          <LeafDivider />
         </div>
 
         <div className="glass-card p-6 lg:p-10">
