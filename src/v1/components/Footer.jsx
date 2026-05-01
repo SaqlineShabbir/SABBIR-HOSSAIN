@@ -23,7 +23,7 @@ const Footer = () => {
         {/* Brand */}
         <div className="text-center md:text-left">
           <h3 className="gradient-text font-black text-2xl">Sabbir Hossain</h3>
-          <p className="text-white/30 text-sm mt-1">MERN Stack Developer · Chattogram, BD</p>
+          <p className="text-white/30 text-sm mt-1">Software Developer · Chattogram, BD</p>
         </div>
 
         {/* Nav links */}

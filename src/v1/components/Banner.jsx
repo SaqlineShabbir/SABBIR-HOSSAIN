@@ -21,6 +21,7 @@ const techStack = [
 ];
 
 const toRotate = [
+  "Software Developer",
   "Full Stack Developer",
   "MERN Stack Expert",
   "Next.js Enthusiast",

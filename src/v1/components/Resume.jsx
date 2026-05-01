@@ -107,7 +107,7 @@ const Resume = () => {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-8 border-b border-white/8 gap-4">
             <div>
               <h3 className="text-2xl font-bold text-white">Sabbir Hossain</h3>
-              <p className="text-purple-400 font-medium mt-1">MERN Stack Developer</p>
+              <p className="text-purple-400 font-medium mt-1">Software Developer</p>
               <p className="text-white/35 text-sm mt-1">sabbir0911hossain@gmail.com · Chattogram, Bangladesh</p>
             </div>
             <div className="flex gap-8">
@@ -130,7 +130,7 @@ const Resume = () => {
             <div>
               <h4 className="text-white font-semibold text-base mb-4">About Me</h4>
               <p className="text-white/45 text-sm leading-relaxed">
-                A dynamic MERN Stack Developer passionate about leveraging technology to create
+                A dynamic Software Developer passionate about leveraging technology to create
                 meaningful solutions. I thrive on learning new skills quickly and keeping pace
                 with the latest industry trends. Excellent communicator who bridges the gap between
                 developers and stakeholders — delivering solutions that exceed expectations.

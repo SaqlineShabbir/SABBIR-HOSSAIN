@@ -13,11 +13,11 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Sabbir Hossain | MERN Stack Developer",
+  title: "Sabbir Hossain | Software Developer",
   description:
     "Full Stack Developer specialising in React, Next.js, Node.js and MongoDB. Building exceptional digital experiences.",
   keywords: [
-    "Sabbir Hossain", "MERN Stack Developer", "Next.js Developer",
+    "Sabbir Hossain", "Software Developer", "Next.js Developer",
     "React Developer", "Full Stack Developer", "Bangladesh",
   ],
 };
