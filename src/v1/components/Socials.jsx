@@ -43,24 +43,18 @@ const socials = [
 ];
 
 const Socials = () => {
-  const sectionRef = useRef(null);
+  const ref = useRef(null);
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) obs.observe(sectionRef.current);
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.1 });
+    if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
   return (
     <section
-      ref={sectionRef}
-      className={`py-16 px-5 lg:px-20 transition-all duration-700 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      ref={ref}
+      className={`py-16 px-5 lg:px-20 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
     >
       <div className="max-w-screen-xl mx-auto">
         {/* Header */}
@@ -80,10 +74,7 @@ const Socials = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div
-                className={`social-card border border-white/8 ${social.hoverBorder} hover:shadow-xl ${social.hoverShadow}`}
-                style={{ transitionDelay: `${index * 0.08}s` }}
-              >
+              <div className={`social-card border border-white/8 ${social.hoverBorder} hover:shadow-xl ${social.hoverShadow}`}>
                 {/* Icon container */}
                 <div
                   className={`w-12 h-12 rounded-xl bg-gradient-to-br ${social.gradient} flex items-center justify-center p-2.5 flex-shrink-0 transition-transform duration-300 group-hover:scale-110`}

@@ -27,15 +27,11 @@ const contactInfo = [
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
-  const sectionRef = useRef(null);
+  const ref = useRef(null);
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) setVisible(true); },
-      { threshold: 0.08 }
-    );
-    if (sectionRef.current) obs.observe(sectionRef.current);
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.08 });
+    if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
@@ -68,10 +64,8 @@ const ContactForm = () => {
   return (
     <section
       id="contact"
-      ref={sectionRef}
-      className={`relative py-24 px-5 lg:px-20 overflow-hidden transition-all duration-700 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
+      ref={ref}
+      className={`relative py-24 px-5 lg:px-20 overflow-hidden transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
     >
       <div className="blob-purple" style={{ bottom: "0%", left: "-5%" }} />
 
