@@ -40,6 +40,8 @@ function useReveal() {
 
 const ProjectCard = ({ project, index }) => {
   const [ref, visible] = useReveal();
+  const [imgLoaded, setImgLoaded] = useState(false);
+
   return (
     <div
       ref={ref}
@@ -47,7 +49,17 @@ const ProjectCard = ({ project, index }) => {
       style={{ transitionDelay: `${(index % 3) * 0.1}s` }}
     >
       <div className="project-img-wrapper h-[190px]">
-        <Image className="w-full h-full object-cover" src={project.imgSrc} alt={project.title} />
+        {!imgLoaded && (
+          <div className="absolute inset-0 bg-white/5 animate-pulse z-10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full border-2 border-purple-500/30 border-t-purple-500 animate-spin" />
+          </div>
+        )}
+        <Image
+          className={`w-full h-full object-cover transition-opacity duration-500 ${imgLoaded ? "opacity-100" : "opacity-0"}`}
+          src={project.imgSrc}
+          alt={project.title}
+          onLoad={() => setImgLoaded(true)}
+        />
         <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-0 group-hover:opacity-75 transition-opacity duration-300`} />
         <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
           {project.github && (

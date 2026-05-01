@@ -5,6 +5,8 @@
 * {
   scroll-behavior: smooth;
   cursor: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 /* Show default cursor on touch devices */
@@ -16,6 +18,37 @@ body {
   background-color: #050816;
   color: #e2e8f0;
   overflow-x: hidden;
+}
+
+/* ── Mobile tap feedback ── */
+@media (hover: none) {
+  .btn-primary:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+  }
+  .btn-outline:active {
+    transform: scale(0.96);
+    background: rgba(124, 58, 237, 0.15);
+  }
+  .tech-icon-card:active {
+    transform: scale(0.94);
+    border-color: rgba(124, 58, 237, 0.6);
+    background: rgba(124, 58, 237, 0.15);
+  }
+  .project-card:active {
+    transform: scale(0.98);
+    border-color: rgba(124, 58, 237, 0.4);
+  }
+  .social-card:active {
+    transform: scale(0.96);
+  }
+  .skill-tag:active {
+    background: rgba(124, 58, 237, 0.25);
+    transform: scale(0.95);
+  }
+  a:active, button:active {
+    opacity: 0.75;
+  }
 }
 
 /* ── Custom Cursor ── */

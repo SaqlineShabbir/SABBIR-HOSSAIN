@@ -1,7 +1,6 @@
 import BackToTop from "./BackToTop";
 import Banner from "./Banner";
 import ContactForm from "./Contact";
-import CustomCursor from "./CustomCursor";
 import Footer from "./Footer";
 import LoadingScreen from "./LoadingScreen";
 import Navigation from "./Navigation";
@@ -15,7 +14,6 @@ const Main = () => {
   return (
     <>
       <LoadingScreen />
-      <CustomCursor />
       <ScrollProgress />
       <ParticleBackground />
       <BackToTop />
