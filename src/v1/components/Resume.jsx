@@ -5,23 +5,23 @@ const LeafDivider = () => (
   <svg width="220" height="28" viewBox="0 0 220 28" className="mx-auto mt-4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <linearGradient id="rvg" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%"   stopColor="#7c3aed" stopOpacity="0"/>
-        <stop offset="30%"  stopColor="#7c3aed" stopOpacity="0.7"/>
-        <stop offset="50%"  stopColor="#3b82f6" stopOpacity="1"/>
-        <stop offset="70%"  stopColor="#7c3aed" stopOpacity="0.7"/>
-        <stop offset="100%" stopColor="#7c3aed" stopOpacity="0"/>
+        <stop offset="0%"   stopColor="var(--color-primary)" stopOpacity="0"/>
+        <stop offset="30%"  stopColor="var(--color-primary)" stopOpacity="0.7"/>
+        <stop offset="50%"  stopColor="var(--color-secondary)" stopOpacity="1"/>
+        <stop offset="70%"  stopColor="var(--color-primary)" stopOpacity="0.7"/>
+        <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0"/>
       </linearGradient>
     </defs>
     <path d="M 10 14 C 50 8, 80 20, 110 14 C 140 8, 170 20, 210 14" stroke="url(#rvg)" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-    <ellipse cx="42" cy="9"  rx="8" ry="4"   transform="rotate(-30 42 9)"   fill="rgba(124,58,237,0.25)" stroke="rgba(124,58,237,0.5)"  strokeWidth="0.8"/>
-    <ellipse cx="55" cy="19" rx="7" ry="3.5"  transform="rotate(20 55 19)"  fill="rgba(59,130,246,0.2)"  stroke="rgba(59,130,246,0.45)" strokeWidth="0.8"/>
-    <ellipse cx="110" cy="7" rx="9" ry="4.5"  transform="rotate(-10 110 7)" fill="rgba(124,58,237,0.3)"  stroke="rgba(124,58,237,0.6)"  strokeWidth="0.9"/>
-    <line x1="110" y1="11" x2="110" y2="17"   stroke="rgba(124,58,237,0.4)" strokeWidth="0.8"/>
-    <ellipse cx="168" cy="9"  rx="8" ry="4"   transform="rotate(30 168 9)"  fill="rgba(124,58,237,0.25)" stroke="rgba(124,58,237,0.5)"  strokeWidth="0.8"/>
-    <ellipse cx="155" cy="19" rx="7" ry="3.5"  transform="rotate(-20 155 19)" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.45)" strokeWidth="0.8"/>
-    <circle cx="80"  cy="14" r="2"   fill="rgba(124,58,237,0.5)"/>
-    <circle cx="110" cy="14" r="2.5" fill="rgba(59,130,246,0.6)"/>
-    <circle cx="140" cy="14" r="2"   fill="rgba(124,58,237,0.5)"/>
+    <ellipse cx="42" cy="9"  rx="8" ry="4"   transform="rotate(-30 42 9)"   fill="rgb(var(--color-primary-rgb) /0.25)" stroke="rgb(var(--color-primary-rgb) /0.5)"  strokeWidth="0.8"/>
+    <ellipse cx="55" cy="19" rx="7" ry="3.5"  transform="rotate(20 55 19)"  fill="rgb(var(--color-secondary-rgb) /0.2)"  stroke="rgb(var(--color-secondary-rgb) /0.45)" strokeWidth="0.8"/>
+    <ellipse cx="110" cy="7" rx="9" ry="4.5"  transform="rotate(-10 110 7)" fill="rgb(var(--color-primary-rgb) /0.3)"  stroke="rgb(var(--color-primary-rgb) /0.6)"  strokeWidth="0.9"/>
+    <line x1="110" y1="11" x2="110" y2="17"   stroke="rgb(var(--color-primary-rgb) /0.4)" strokeWidth="0.8"/>
+    <ellipse cx="168" cy="9"  rx="8" ry="4"   transform="rotate(30 168 9)"  fill="rgb(var(--color-primary-rgb) /0.25)" stroke="rgb(var(--color-primary-rgb) /0.5)"  strokeWidth="0.8"/>
+    <ellipse cx="155" cy="19" rx="7" ry="3.5"  transform="rotate(-20 155 19)" fill="rgb(var(--color-secondary-rgb) /0.2)" stroke="rgb(var(--color-secondary-rgb) /0.45)" strokeWidth="0.8"/>
+    <circle cx="80"  cy="14" r="2"   fill="rgb(var(--color-primary-rgb) /0.5)"/>
+    <circle cx="110" cy="14" r="2.5" fill="rgb(var(--color-secondary-rgb) /0.6)"/>
+    <circle cx="140" cy="14" r="2"   fill="rgb(var(--color-primary-rgb) /0.5)"/>
   </svg>
 );
 import { useEffect, useRef, useState } from "react";
@@ -89,7 +89,7 @@ const GitHubStats = () => {
         {statItems.map(({ icon: Icon, label, value }) => (
           <div key={label} className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-white/60 text-xs">
-              <Icon size={13} className="text-purple-400" />
+              <Icon size={13} className="text-primary" />
               {label}
             </div>
             <span className="text-white font-bold text-sm">{value}</span>
@@ -100,7 +100,7 @@ const GitHubStats = () => {
       {/* Card 2 — Top Languages */}
       <div className="rounded-xl border border-white/10 bg-[#0d1117] p-5">
         <p className="text-white font-semibold text-sm mb-3 flex items-center gap-2">
-          <FaCodeBranch className="text-purple-400" size={14} /> Top Languages
+          <FaCodeBranch className="text-primary" size={14} /> Top Languages
         </p>
         <div className="space-y-2">
           {stats.topLangs.slice(0, 5).map(([lang, count]) => {
@@ -114,7 +114,7 @@ const GitHubStats = () => {
                 <div className="h-1.5 bg-white/8 rounded-full overflow-hidden">
                   <div
                     className="h-full rounded-full"
-                    style={{ width: `${pct}%`, background: LANG_COLORS[lang] || "#a78bfa" }}
+                    style={{ width: `${pct}%`, background: LANG_COLORS[lang] || "var(--color-primary-light)" }}
                   />
                 </div>
               </div>
@@ -164,8 +164,8 @@ const tools = [
 
 const typeBadge = {
   Work:      "bg-green-500/15 text-green-400 border border-green-500/25",
-  Education: "bg-blue-500/15 text-blue-400 border border-blue-500/25",
-  Course:    "bg-purple-500/15 text-purple-400 border border-purple-500/25",
+  Education: "bg-primary/15 text-primary border border-primary/25",
+  Course:    "bg-primary/15 text-primary border border-primary/25",
 };
 
 const resumeStats = [
@@ -207,11 +207,11 @@ const Resume = () => {
       ref={sectionRef}
       className={`relative py-24 px-5 lg:px-20 overflow-hidden transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
     >
-      <div className="blob-purple" style={{ top: "10%", right: "-8%" }} />
+      <div className="blob-primary" style={{ top: "10%", right: "-8%" }} />
 
       <div className="max-w-screen-xl mx-auto">
         <div className="text-center mb-14">
-          <p className="text-purple-400 text-sm font-medium uppercase tracking-widest mb-3">Background</p>
+          <p className="text-primary text-sm font-medium uppercase tracking-widest mb-3">Background</p>
           <h2 className="font-bold text-3xl lg:text-5xl text-white mb-3">
             My <span className="gradient-text">Resume</span>
           </h2>
@@ -223,7 +223,7 @@ const Resume = () => {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-8 border-b border-white/8 gap-4">
             <div>
               <h3 className="text-2xl font-bold text-white">Sabbir Hossain</h3>
-              <p className="text-purple-400 font-medium mt-1">Software Developer</p>
+              <p className="text-primary font-medium mt-1">Software Developer</p>
               <p className="text-white/60 text-sm mt-1">sabbir0911hossain@gmail.com · Chattogram, Bangladesh</p>
             </div>
             <div className="flex gap-8">
@@ -245,7 +245,7 @@ const Resume = () => {
             <div>
               <h4 className="text-white font-semibold text-base mb-6">Experience &amp; Education</h4>
               <div className="relative space-y-5">
-                <div className="absolute left-[5px] top-2 bottom-0 w-[1px] bg-gradient-to-b from-purple-600/60 via-blue-500/30 to-transparent" />
+                <div className="absolute left-[5px] top-2 bottom-0 w-[1px] bg-gradient-to-b from-primary/60 via-secondary/30 to-transparent" />
                 {experience.map((exp) => (
                   <div key={exp.id} className="flex gap-4 pl-6 relative">
                     <div className="timeline-dot absolute left-0 top-[6px]" />
@@ -263,7 +263,7 @@ const Resume = () => {
                         </div>
                         <div className="flex flex-col items-end gap-1 flex-shrink-0">
                           <span className={`text-[10px] px-2 py-0.5 rounded-full ${typeBadge[exp.type]}`}>{exp.type}</span>
-                          {exp.isCurrent && <span className="text-[10px] px-2 py-0.5 rounded-full bg-pink-500/15 text-pink-400 border border-pink-500/25">Current</span>}
+                          {exp.isCurrent && <span className="text-[10px] px-2 py-0.5 rounded-full bg-accent/15 text-accent border border-accent/25">Current</span>}
                         </div>
                       </div>
                       <p className="text-white/50 text-[11px] mt-1">{exp.date}</p>
@@ -290,7 +290,7 @@ const Resume = () => {
                 href="https://github.com/SaqlineShabbir"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[11px] text-purple-400 hover:text-purple-300 transition-colors font-normal"
+                className="text-[11px] text-primary hover:text-secondary transition-colors font-normal"
               >
                 @SaqlineShabbir ↗
               </a>
@@ -304,7 +304,7 @@ const Resume = () => {
             <div className="grid grid-cols-5 sm:grid-cols-6 lg:grid-cols-9 gap-3 lg:gap-4">
               {tools.map((tool) => (
                 <div key={tool.id} className="group flex flex-col items-center gap-2">
-                  <div className="w-12 h-12 glass-card flex items-center justify-center p-2 rounded-xl transition-all duration-300 group-hover:border-purple-500/40 group-hover:shadow-md group-hover:shadow-purple-500/15 group-hover:-translate-y-1.5">
+                  <div className="w-12 h-12 glass-card flex items-center justify-center p-2 rounded-xl transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-md group-hover:shadow-primary/15 group-hover:-translate-y-1.5">
                     <Image src={tool.logo} alt={tool.name} width={30} height={30} className="object-contain" />
                   </div>
                   <span className="text-[10px] text-white/50 text-center leading-tight group-hover:text-white/55 transition-colors">{tool.name}</span>

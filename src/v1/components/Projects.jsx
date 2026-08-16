@@ -13,12 +13,12 @@ import hotelhunt from "../../v1/assets/hotelhunt.PNG";
 import img4 from "../../v1/assets/restaurent.PNG";
 
 const projectData = [
-  { title: "Careers Hub",    description: "A job portal with roles for users, employers, and admins. Advanced job filtering, application tracking, and real-time notifications.", technologies: ["Next.js", "Tailwind", "MongoDB", "Node.js"], imgSrc: careershub, github: "https://github.com/SaqlineShabbir/Job-portal",                       demo: "https://job-portal-kohl-six.vercel.app/",          accent: "from-violet-600 to-blue-600" },
-  { title: "Hotel Hunt",     description: "Seamless hotel booking platform for guests and admins. Browse, book, and manage reservations with a dedicated admin dashboard.",        technologies: ["Next.js", "Tailwind", "MongoDB", "Node.js"], imgSrc: hotelhunt, github: "https://github.com/SaqlineShabbir/HotelHunt-Full-Stack",           demo: "https://hotel-hunt.vercel.app/",                   accent: "from-pink-600 to-purple-600" },
+  { title: "Careers Hub",    description: "A job portal with roles for users, employers, and admins. Advanced job filtering, application tracking, and real-time notifications.", technologies: ["Next.js", "Tailwind", "MongoDB", "Node.js"], imgSrc: careershub, github: "https://github.com/SaqlineShabbir/Job-portal",                       demo: "https://job-portal-kohl-six.vercel.app/",          accent: "from-indigo-600 to-blue-600" },
+  { title: "Hotel Hunt",     description: "Seamless hotel booking platform for guests and admins. Browse, book, and manage reservations with a dedicated admin dashboard.",        technologies: ["Next.js", "Tailwind", "MongoDB", "Node.js"], imgSrc: hotelhunt, github: "https://github.com/SaqlineShabbir/HotelHunt-Full-Stack",           demo: "https://hotel-hunt.vercel.app/",                   accent: "from-slate-600 to-blue-600" },
   { title: "OneQuiz",        description: "Quiz platform with user and admin roles. Attendees view results percentage-wise; admins publish quizzes and issue certificates.",       technologies: ["Next.js", "Tailwind", "MongoDB"],            imgSrc: img,       github: "https://github.com/SaqlineShabbir/OnQuiz",                   demo: "https://on-quiz.vercel.app/",                      accent: "from-cyan-600 to-blue-600" },
   { title: "Restaurant X",   description: "Food ordering platform with user and admin roles. Browse menus, place orders, and leave reviews with integrated payment gateway.",      technologies: ["React", "Tailwind", "Node.js", "MongoDB"],   imgSrc: img4,      frontendGithub: "https://github.com/SaqlineShabbir/restaurant-frontend", backendGithub: "https://github.com/SaqlineShabbir/restaurant-backend", demo: "https://restaurant-sage-theta.vercel.app/", accent: "from-orange-600 to-red-600" },
   { title: "Digital Village", description: "Team project (7 devs) with user & admin roles. Users access government-style services; admins manage and publish them.",             technologies: ["React", "Tailwind", "Node.js"],              imgSrc: img1,      github: "https://github.com/akhlakuzzalal/digital_village_front-end", demo: "https://digital-village.onrender.com/",            accent: "from-green-600 to-teal-600" },
-  { title: "Dream Rainbow",  description: "Single-service website with online booking and integrated payment. Admins manage services and bookings through a dashboard.",           technologies: ["React", "Tailwind", "Firebase"],             imgSrc: img2,      github: "https://github.com/SaqlineShabbir/Dream-Rainbow-Ui",         demo: "https://wall-paint-886e7.web.app/",                accent: "from-fuchsia-600 to-violet-600" },
+  { title: "Dream Rainbow",  description: "Single-service website with online booking and integrated payment. Admins manage services and bookings through a dashboard.",           technologies: ["React", "Tailwind", "Firebase"],             imgSrc: img2,      github: "https://github.com/SaqlineShabbir/Dream-Rainbow-Ui",         demo: "https://wall-paint-886e7.web.app/",                accent: "from-blue-700 to-indigo-500" },
   { title: "Doctors Portal", description: "Dentist website. Users book appointments by service; admins manage services, appointments, and patient records.",                       technologies: ["React", "Firebase"],                         imgSrc: img3,      github: "https://github.com/SaqlineShabbir/doctors-portal-client-side", demo: "https://loquacious-fairy-bcf088.netlify.app/",   accent: "from-sky-600 to-cyan-600" },
 ];
 
@@ -31,23 +31,23 @@ const LeafDivider = () => (
   <svg width="220" height="28" viewBox="0 0 220 28" className="mx-auto mt-4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <linearGradient id="pvg" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%"   stopColor="#7c3aed" stopOpacity="0"/>
-        <stop offset="30%"  stopColor="#7c3aed" stopOpacity="0.7"/>
-        <stop offset="50%"  stopColor="#3b82f6" stopOpacity="1"/>
-        <stop offset="70%"  stopColor="#7c3aed" stopOpacity="0.7"/>
-        <stop offset="100%" stopColor="#7c3aed" stopOpacity="0"/>
+        <stop offset="0%"   stopColor="var(--color-primary)" stopOpacity="0"/>
+        <stop offset="30%"  stopColor="var(--color-primary)" stopOpacity="0.7"/>
+        <stop offset="50%"  stopColor="var(--color-secondary)" stopOpacity="1"/>
+        <stop offset="70%"  stopColor="var(--color-primary)" stopOpacity="0.7"/>
+        <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0"/>
       </linearGradient>
     </defs>
     <path d="M 10 14 C 50 8, 80 20, 110 14 C 140 8, 170 20, 210 14" stroke="url(#pvg)" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-    <ellipse cx="42"  cy="9"  rx="8" ry="4"   transform="rotate(-30 42 9)"    fill="rgba(124,58,237,0.25)" stroke="rgba(124,58,237,0.5)"  strokeWidth="0.8"/>
-    <ellipse cx="55"  cy="19" rx="7" ry="3.5"  transform="rotate(20 55 19)"   fill="rgba(59,130,246,0.2)"  stroke="rgba(59,130,246,0.45)" strokeWidth="0.8"/>
-    <ellipse cx="110" cy="7"  rx="9" ry="4.5"  transform="rotate(-10 110 7)"  fill="rgba(124,58,237,0.3)"  stroke="rgba(124,58,237,0.6)"  strokeWidth="0.9"/>
-    <line x1="110" y1="11" x2="110" y2="17" stroke="rgba(124,58,237,0.4)" strokeWidth="0.8"/>
-    <ellipse cx="168" cy="9"  rx="8" ry="4"   transform="rotate(30 168 9)"    fill="rgba(124,58,237,0.25)" stroke="rgba(124,58,237,0.5)"  strokeWidth="0.8"/>
-    <ellipse cx="155" cy="19" rx="7" ry="3.5"  transform="rotate(-20 155 19)" fill="rgba(59,130,246,0.2)"  stroke="rgba(59,130,246,0.45)" strokeWidth="0.8"/>
-    <circle cx="80"  cy="14" r="2"   fill="rgba(124,58,237,0.5)"/>
-    <circle cx="110" cy="14" r="2.5" fill="rgba(59,130,246,0.6)"/>
-    <circle cx="140" cy="14" r="2"   fill="rgba(124,58,237,0.5)"/>
+    <ellipse cx="42"  cy="9"  rx="8" ry="4"   transform="rotate(-30 42 9)"    fill="rgb(var(--color-primary-rgb) /0.25)" stroke="rgb(var(--color-primary-rgb) /0.5)"  strokeWidth="0.8"/>
+    <ellipse cx="55"  cy="19" rx="7" ry="3.5"  transform="rotate(20 55 19)"   fill="rgb(var(--color-secondary-rgb) /0.2)"  stroke="rgb(var(--color-secondary-rgb) /0.45)" strokeWidth="0.8"/>
+    <ellipse cx="110" cy="7"  rx="9" ry="4.5"  transform="rotate(-10 110 7)"  fill="rgb(var(--color-primary-rgb) /0.3)"  stroke="rgb(var(--color-primary-rgb) /0.6)"  strokeWidth="0.9"/>
+    <line x1="110" y1="11" x2="110" y2="17" stroke="rgb(var(--color-primary-rgb) /0.4)" strokeWidth="0.8"/>
+    <ellipse cx="168" cy="9"  rx="8" ry="4"   transform="rotate(30 168 9)"    fill="rgb(var(--color-primary-rgb) /0.25)" stroke="rgb(var(--color-primary-rgb) /0.5)"  strokeWidth="0.8"/>
+    <ellipse cx="155" cy="19" rx="7" ry="3.5"  transform="rotate(-20 155 19)" fill="rgb(var(--color-secondary-rgb) /0.2)"  stroke="rgb(var(--color-secondary-rgb) /0.45)" strokeWidth="0.8"/>
+    <circle cx="80"  cy="14" r="2"   fill="rgb(var(--color-primary-rgb) /0.5)"/>
+    <circle cx="110" cy="14" r="2.5" fill="rgb(var(--color-secondary-rgb) /0.6)"/>
+    <circle cx="140" cy="14" r="2"   fill="rgb(var(--color-primary-rgb) /0.5)"/>
   </svg>
 );
 
@@ -70,7 +70,7 @@ const ProjectCard = ({ project, index, cardRef }) => {
       <div className="relative lg:w-[45%] h-[230px] lg:h-auto flex-shrink-0 overflow-hidden">
         {!imgLoaded && (
           <div className="absolute inset-0 bg-white/5 animate-pulse z-10 flex items-center justify-center">
-            <div className="w-10 h-10 rounded-full border-2 border-purple-500/30 border-t-purple-500 animate-spin" />
+            <div className="w-10 h-10 rounded-full border-2 border-primary/30 border-t-primary animate-spin" />
           </div>
         )}
         <Image
@@ -236,8 +236,8 @@ const Projects = () => {
       id="projects"
       className="relative py-24 px-5 lg:px-20"
     >
-      <div className="blob-blue"   style={{ top: "0%",    left: "-8%" }} />
-      <div className="blob-purple" style={{ bottom: "10%", right: "-5%" }} />
+      <div className="blob-secondary"   style={{ top: "0%",    left: "-8%" }} />
+      <div className="blob-primary" style={{ bottom: "10%", right: "-5%" }} />
 
       <div className="max-w-screen-xl mx-auto relative" style={{ zIndex: 1 }}>
 
@@ -246,7 +246,7 @@ const Projects = () => {
           ref={headerRef}
           className={`text-center mb-10 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <p className="text-purple-400 text-sm font-medium uppercase tracking-widest mb-3">Portfolio</p>
+          <p className="text-primary text-sm font-medium uppercase tracking-widest mb-3">Portfolio</p>
           <h2 className="font-bold text-3xl lg:text-5xl text-white mb-3">
             Featured <span className="gradient-text">Projects</span>
           </h2>
@@ -264,7 +264,7 @@ const Projects = () => {
               onClick={() => setActiveFilter(filter)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeFilter === filter
-                  ? "bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-600/30 scale-105"
+                  ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/30 scale-105"
                   : "glass-card text-white/50 hover:text-white hover:scale-105"
               }`}
             >

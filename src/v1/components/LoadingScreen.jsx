@@ -22,18 +22,18 @@ const LoadingScreen = () => {
       }`}
     >
       {/* Ambient blobs */}
-      <div className="blob-purple" style={{ top: "15%", left: "5%" }} />
-      <div className="blob-blue"   style={{ bottom: "15%", right: "5%" }} />
+      <div className="blob-primary" style={{ top: "15%", left: "5%" }} />
+      <div className="blob-secondary"   style={{ bottom: "15%", right: "5%" }} />
 
       <div className="relative z-10 flex flex-col items-center gap-3">
         {/* Animated ring + logo */}
         <div className="relative w-28 h-28 mb-2 flex items-center justify-center">
-          <div className="absolute inset-0 rounded-full border-2 border-purple-500/20 animate-ping" style={{ animationDuration: "1.5s" }} />
+          <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping" style={{ animationDuration: "1.5s" }} />
           <div
             className="absolute inset-0 rounded-full border-2 border-transparent"
             style={{
-              borderTopColor: "#7c3aed",
-              borderRightColor: "#3b82f6",
+              borderTopColor: "var(--color-primary)",
+              borderRightColor: "var(--color-secondary)",
               animation: "spin-slow 1.2s linear infinite",
             }}
           />
@@ -45,7 +45,7 @@ const LoadingScreen = () => {
             className="object-contain relative z-10 animate-border-shape"
             style={{
               mixBlendMode: "screen",
-              filter: "drop-shadow(0 0 14px rgba(124, 58, 237, 0.8)) drop-shadow(0 0 30px rgba(59, 130, 246, 0.4))",
+              filter: "drop-shadow(0 0 14px rgb(var(--color-primary-rgb) / 0.8)) drop-shadow(0 0 30px rgb(var(--color-secondary-rgb) / 0.4))",
             }}
           />
         </div>
@@ -65,7 +65,7 @@ const LoadingScreen = () => {
 
         {/* Progress bar */}
         <div className="mt-8 w-48 h-[2px] bg-white/8 rounded-full overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-purple-600 to-blue-500 rounded-full loading-bar" />
+          <div className="h-full bg-gradient-to-r from-primary to-secondary rounded-full loading-bar" />
         </div>
       </div>
     </div>

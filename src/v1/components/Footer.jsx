@@ -48,7 +48,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="w-9 h-9 glass-card flex items-center justify-center text-white/40 hover:text-white hover:border-purple-500/40 transition-all duration-300 hover:scale-110"
+              className="w-9 h-9 glass-card flex items-center justify-center text-white/40 hover:text-white hover:border-primary/40 transition-all duration-300 hover:scale-110"
             >
               <Icon size={16} />
             </Link>
@@ -60,7 +60,7 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 pt-5 text-white/20 text-xs">
         <p>© 2025 Sabbir Hossain. All rights reserved.</p>
         <p className="flex items-center gap-1.5">
-          Built with <FaHeart size={10} className="text-pink-400" /> using Next.js &amp; Tailwind CSS
+          Built with <FaHeart size={10} className="text-red-400" /> using Next.js &amp; Tailwind CSS
         </p>
       </div>
     </footer>

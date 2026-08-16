@@ -5,23 +5,23 @@ const LeafDivider = () => (
   <svg width="220" height="28" viewBox="0 0 220 28" className="mx-auto mt-4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <linearGradient id="cvg" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%"   stopColor="#7c3aed" stopOpacity="0"/>
-        <stop offset="30%"  stopColor="#7c3aed" stopOpacity="0.7"/>
-        <stop offset="50%"  stopColor="#3b82f6" stopOpacity="1"/>
-        <stop offset="70%"  stopColor="#7c3aed" stopOpacity="0.7"/>
-        <stop offset="100%" stopColor="#7c3aed" stopOpacity="0"/>
+        <stop offset="0%"   stopColor="var(--color-primary)" stopOpacity="0"/>
+        <stop offset="30%"  stopColor="var(--color-primary)" stopOpacity="0.7"/>
+        <stop offset="50%"  stopColor="var(--color-secondary)" stopOpacity="1"/>
+        <stop offset="70%"  stopColor="var(--color-primary)" stopOpacity="0.7"/>
+        <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0"/>
       </linearGradient>
     </defs>
     <path d="M 10 14 C 50 8, 80 20, 110 14 C 140 8, 170 20, 210 14" stroke="url(#cvg)" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-    <ellipse cx="42" cy="9"  rx="8" ry="4"   transform="rotate(-30 42 9)"   fill="rgba(124,58,237,0.25)" stroke="rgba(124,58,237,0.5)"  strokeWidth="0.8"/>
-    <ellipse cx="55" cy="19" rx="7" ry="3.5"  transform="rotate(20 55 19)"  fill="rgba(59,130,246,0.2)"  stroke="rgba(59,130,246,0.45)" strokeWidth="0.8"/>
-    <ellipse cx="110" cy="7" rx="9" ry="4.5"  transform="rotate(-10 110 7)" fill="rgba(124,58,237,0.3)"  stroke="rgba(124,58,237,0.6)"  strokeWidth="0.9"/>
-    <line x1="110" y1="11" x2="110" y2="17"   stroke="rgba(124,58,237,0.4)" strokeWidth="0.8"/>
-    <ellipse cx="168" cy="9"  rx="8" ry="4"   transform="rotate(30 168 9)"  fill="rgba(124,58,237,0.25)" stroke="rgba(124,58,237,0.5)"  strokeWidth="0.8"/>
-    <ellipse cx="155" cy="19" rx="7" ry="3.5"  transform="rotate(-20 155 19)" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.45)" strokeWidth="0.8"/>
-    <circle cx="80"  cy="14" r="2"   fill="rgba(124,58,237,0.5)"/>
-    <circle cx="110" cy="14" r="2.5" fill="rgba(59,130,246,0.6)"/>
-    <circle cx="140" cy="14" r="2"   fill="rgba(124,58,237,0.5)"/>
+    <ellipse cx="42" cy="9"  rx="8" ry="4"   transform="rotate(-30 42 9)"   fill="rgb(var(--color-primary-rgb) /0.25)" stroke="rgb(var(--color-primary-rgb) /0.5)"  strokeWidth="0.8"/>
+    <ellipse cx="55" cy="19" rx="7" ry="3.5"  transform="rotate(20 55 19)"  fill="rgb(var(--color-secondary-rgb) /0.2)"  stroke="rgb(var(--color-secondary-rgb) /0.45)" strokeWidth="0.8"/>
+    <ellipse cx="110" cy="7" rx="9" ry="4.5"  transform="rotate(-10 110 7)" fill="rgb(var(--color-primary-rgb) /0.3)"  stroke="rgb(var(--color-primary-rgb) /0.6)"  strokeWidth="0.9"/>
+    <line x1="110" y1="11" x2="110" y2="17"   stroke="rgb(var(--color-primary-rgb) /0.4)" strokeWidth="0.8"/>
+    <ellipse cx="168" cy="9"  rx="8" ry="4"   transform="rotate(30 168 9)"  fill="rgb(var(--color-primary-rgb) /0.25)" stroke="rgb(var(--color-primary-rgb) /0.5)"  strokeWidth="0.8"/>
+    <ellipse cx="155" cy="19" rx="7" ry="3.5"  transform="rotate(-20 155 19)" fill="rgb(var(--color-secondary-rgb) /0.2)" stroke="rgb(var(--color-secondary-rgb) /0.45)" strokeWidth="0.8"/>
+    <circle cx="80"  cy="14" r="2"   fill="rgb(var(--color-primary-rgb) /0.5)"/>
+    <circle cx="110" cy="14" r="2.5" fill="rgb(var(--color-secondary-rgb) /0.6)"/>
+    <circle cx="140" cy="14" r="2"   fill="rgb(var(--color-primary-rgb) /0.5)"/>
   </svg>
 );
 import { useEffect, useRef, useState } from "react";
@@ -83,7 +83,7 @@ const ContactForm = () => {
         particleCount: 120,
         spread: 80,
         origin: { y: 0.6 },
-        colors: ["#7c3aed", "#3b82f6", "#ec4899", "#a78bfa", "#60a5fa"],
+        colors: ["#2563eb", "#0ea5e9", "#38bdf8", "#60a5fa", "#22d3ee"],
         disableForReducedMotion: true,
       });
     } catch {
@@ -99,15 +99,15 @@ const ContactForm = () => {
       ref={ref}
       className={`relative py-24 px-5 lg:px-20 overflow-hidden transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
     >
-      <div className="blob-purple" style={{ bottom: "0%", left: "-5%" }} />
+      <div className="blob-primary" style={{ bottom: "0%", left: "-5%" }} />
 
       <Toaster
         position="top-center"
         toastOptions={{
           style: {
-            background: "#1a1030",
+            background: "#0f1b30",
             color: "#e2e8f0",
-            border: "1px solid rgba(124,58,237,0.35)",
+            border: "1px solid rgb(var(--color-primary-rgb) / 0.35)",
           },
         }}
       />
@@ -115,7 +115,7 @@ const ContactForm = () => {
       <div className="max-w-screen-xl mx-auto">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="text-purple-400 text-sm font-medium uppercase tracking-widest mb-3">
+          <p className="text-primary text-sm font-medium uppercase tracking-widest mb-3">
             Get In Touch
           </p>
           <h2 className="font-bold text-3xl lg:text-5xl text-white mb-3">
@@ -211,7 +211,7 @@ const ContactForm = () => {
                       <p className="text-white/35 text-[11px] uppercase tracking-wider mb-0.5">
                         {title}
                       </p>
-                      <p className="text-white/75 text-sm group-hover:text-purple-400 transition-colors">
+                      <p className="text-white/75 text-sm group-hover:text-primary transition-colors">
                         {value}
                       </p>
                     </div>

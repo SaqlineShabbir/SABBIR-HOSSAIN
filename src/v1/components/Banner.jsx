@@ -74,19 +74,14 @@ const Banner = () => {
 
   return (
     <section id="about" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
-      <div className="blob-purple" style={{ top: "8%",    left: "-8%" }} />
-      <div className="blob-blue"   style={{ bottom: "5%", right: "-5%" }} />
+      <div className="blob-primary" style={{ top: "8%",    left: "-8%" }} />
+      <div className="blob-secondary"   style={{ bottom: "5%", right: "-5%" }} />
 
-      <div className="relative z-10 max-w-screen-xl mx-auto w-full px-5 lg:px-20 pt-24 pb-10">
+      <div className="relative z-10 max-w-screen-xl mx-auto w-full px-5 lg:px-20 pt-32 pb-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
 
           {/* Left */}
           <div className="space-y-6 lg:w-[55%] text-center lg:text-left animate-fade-up">
-            <div className="inline-flex items-center gap-2 glass-card px-4 py-2 text-sm text-purple-300">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              Available for new opportunities
-            </div>
-
             <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight text-white">
               Hi, I&apos;m <span className="gradient-text">Sabbir</span>
               <br />
@@ -96,8 +91,8 @@ const Banner = () => {
             <div className="flex items-center justify-center lg:justify-start gap-3 h-8">
               <div className="accent-line" />
               <h2 className="text-lg lg:text-xl font-medium text-white/60">
-                <span className="text-purple-400 font-semibold">{text}</span>
-                <span className="text-purple-400 animate-pulse">|</span>
+                <span className="text-primary font-semibold">{text}</span>
+                <span className="text-primary animate-pulse">|</span>
               </h2>
             </div>
 
@@ -119,8 +114,8 @@ const Banner = () => {
           {/* Right: Profile */}
           <div className="lg:w-[40%] flex justify-center items-center">
             <div className="relative animate-float">
-              <div className="absolute inset-[-16px] rounded-full bg-gradient-to-r from-purple-600 via-blue-500 to-pink-500 opacity-25 blur-2xl animate-glow" />
-              <div className="absolute inset-[-4px] rounded-full bg-gradient-to-r from-purple-600 via-blue-500 to-pink-500 animate-spin-slow opacity-60" />
+              <div className="absolute inset-[-16px] rounded-full bg-gradient-to-r from-primary via-secondary to-accent opacity-25 blur-2xl animate-glow" />
+              <div className="absolute inset-[-4px] rounded-full bg-gradient-to-r from-primary via-secondary to-accent animate-spin-slow opacity-60" />
               <Image
                 className="animation relative z-10 w-[250px] h-[250px] lg:w-[310px] lg:h-[310px]"
                 src={profile}

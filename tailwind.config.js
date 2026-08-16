@@ -11,9 +11,10 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "#7c3aed",
-        secondary: "#3b82f6",
-        accent: "#ec4899",
+        primary: "rgb(var(--color-primary-rgb) / <alpha-value>)",
+        "primary-light": "rgb(var(--color-primary-light-rgb) / <alpha-value>)",
+        secondary: "rgb(var(--color-secondary-rgb) / <alpha-value>)",
+        accent: "rgb(var(--color-accent-rgb) / <alpha-value>)",
       },
       keyframes: {
         "border-shape": {
@@ -35,8 +36,8 @@ module.exports = {
           to:   { transform: "rotate(360deg)" },
         },
         glow: {
-          "0%, 100%": { boxShadow: "0 0 20px rgba(124,58,237,0.3)" },
-          "50%":      { boxShadow: "0 0 50px rgba(124,58,237,0.7), 0 0 80px rgba(59,130,246,0.3)" },
+          "0%, 100%": { boxShadow: "0 0 20px rgb(var(--color-primary-rgb) / 0.3)" },
+          "50%":      { boxShadow: "0 0 50px rgb(var(--color-primary-rgb) / 0.7), 0 0 80px rgb(var(--color-secondary-rgb) / 0.3)" },
         },
         shimmer: {
           "0%":   { backgroundPosition: "-200% 0" },

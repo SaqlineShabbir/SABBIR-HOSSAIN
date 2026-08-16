@@ -6,8 +6,8 @@ export default function NotFound() {
   return (
     <div className="relative min-h-screen bg-[#050816] flex flex-col items-center justify-center px-5 overflow-hidden">
       {/* Blobs */}
-      <div className="blob-purple" style={{ top: "10%",    left: "-5%" }} />
-      <div className="blob-blue"   style={{ bottom: "10%", right: "-5%" }} />
+      <div className="blob-primary" style={{ top: "10%",    left: "-5%" }} />
+      <div className="blob-secondary"   style={{ bottom: "10%", right: "-5%" }} />
 
       <div className="relative z-10 flex flex-col items-center text-center gap-6 max-w-lg">
         {/* Logo */}
@@ -17,7 +17,7 @@ export default function NotFound() {
           width={64}
           height={64}
           className="animate-border-shape mb-2"
-          style={{ mixBlendMode: "screen", filter: "drop-shadow(0 0 16px rgba(124,58,237,0.8))" }}
+          style={{ mixBlendMode: "screen", filter: "drop-shadow(0 0 16px rgb(var(--color-primary-rgb) / 0.8))" }}
         />
 
         {/* 404 number */}
@@ -25,7 +25,7 @@ export default function NotFound() {
           <p
             className="text-[120px] md:text-[160px] font-black leading-none select-none"
             style={{
-              background: "linear-gradient(135deg, rgba(124,58,237,0.15), rgba(59,130,246,0.08))",
+              background: "linear-gradient(135deg, rgb(var(--color-primary-rgb) / 0.15), rgb(var(--color-secondary-rgb) / 0.08))",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -67,7 +67,7 @@ export default function NotFound() {
               <Link
                 key={href}
                 href={href}
-                className="text-white/30 text-sm capitalize hover:text-purple-400 transition-colors"
+                className="text-white/30 text-sm capitalize hover:text-primary transition-colors"
               >
                 {label.charAt(0).toUpperCase() + label.slice(1)}
               </Link>

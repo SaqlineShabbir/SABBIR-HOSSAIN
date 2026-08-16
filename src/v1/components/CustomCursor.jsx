@@ -2,8 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const CustomCursor = () => {
-  const dotRef  = useRef(null);
-  const glowRef = useRef(null);
+  const cursorRef = useRef(null);
   const [isTouch, setIsTouch] = useState(true);
 
   useEffect(() => {
@@ -14,40 +13,18 @@ const CustomCursor = () => {
   useEffect(() => {
     if (isTouch) return;
 
-    const dot  = dotRef.current;
-    const glow = glowRef.current;
-    if (!dot || !glow) return;
-
-    let mouseX = 0, mouseY = 0;
-    let glowX  = 0, glowY  = 0;
-    let rafId;
+    const cursor = cursorRef.current;
+    if (!cursor) return;
 
     const onMouseMove = (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      dot.style.left = mouseX + "px";
-      dot.style.top  = mouseY + "px";
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top  = e.clientY + "px";
     };
 
-    const animate = () => {
-      glowX += (mouseX - glowX) * 0.1;
-      glowY += (mouseY - glowY) * 0.1;
-      glow.style.left = glowX + "px";
-      glow.style.top  = glowY + "px";
-      rafId = requestAnimationFrame(animate);
-    };
-
-    const onEnter = () => {
-      dot.classList.add("cursor-hover");
-      glow.classList.add("cursor-hover");
-    };
-    const onLeave = () => {
-      dot.classList.remove("cursor-hover");
-      glow.classList.remove("cursor-hover");
-    };
+    const onEnter = () => cursor.classList.add("cursor-hover");
+    const onLeave = () => cursor.classList.remove("cursor-hover");
 
     window.addEventListener("mousemove", onMouseMove);
-    rafId = requestAnimationFrame(animate);
 
     const addListeners = () => {
       document.querySelectorAll("a, button").forEach((el) => {
@@ -59,17 +36,19 @@ const CustomCursor = () => {
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
-      cancelAnimationFrame(rafId);
     };
   }, [isTouch]);
 
   if (isTouch) return null;
 
   return (
-    <>
-      <div ref={dotRef}  className="custom-cursor-dot" />
-      <div ref={glowRef} className="custom-cursor-glow" />
-    </>
+    <div ref={cursorRef} className="custom-cursor">
+      <span className="cc-corner cc-corner-tl" />
+      <span className="cc-corner cc-corner-tr" />
+      <span className="cc-corner cc-corner-br" />
+      <span className="cc-corner cc-corner-bl" />
+      <span className="cc-center" />
+    </div>
   );
 };
 
